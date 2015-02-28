@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gcu.ambientunlocker"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:name=".CustomClassifiers">
+        <activity
+            android:name="com.gcu.ambientunlocker.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.haibison.android.lockpattern.LockPatternActivity"
+            android:theme="@style/Alp.42447968.Theme.Dark" />
+		
+        <service
+            android:name="com.gcu.ambientunlocker.SamplingService"
+            android:enabled="true" />
+        <activity android:name="ShowPatternActivity"></activity>
+
+		<activity
+            android:name="com.gcu.ambientunlocker.PasscodeUnlockActivity"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.gcu.ambientunlocker.PasscodePreferencesActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.gcu.ambientunlocker.PasscodeManagePasswordActivity"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>        
+        
+        
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.HeartBeat"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.Wifi"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.FilesUploader"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.BatteryLevel"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.RunningApplications"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.MagneticField"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.Lightv3"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.Accelerometer"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.Rotation"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.Sound"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.DailyAnalysis"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.ReminderService"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.GatherLatestReadings"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.DailyBucketGenerator"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.CreateArffFiles"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.BuildClassifiersForContexts"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.StopStudy"/>
+        <service android:enabled="true" android:name="com.gcu.ambientunlocker.FileUploaderV2"/>
+        
+        <receiver
+    		android:name="com.gcu.ambientunlocker.StartMyServiceAtBootReceiver"
+    		android:enabled="true"
+    		android:exported="true"
+    		android:label="StartMyServiceAtBootReceiver">
+    		<intent-filter>
+        		<action android:name="android.intent.action.BOOT_COMPLETED" />
+    		</intent-filter>
+		</receiver> 
+        
+    </application>
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+
+</manifest>
